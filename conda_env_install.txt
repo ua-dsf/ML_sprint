@@ -1,0 +1,11 @@
+conda env install
+
+
+conda create -n sprintenv python=3.6
+conda install scikit-learn 
+conda install pandas
+conda deactivate
+
+# install the env as kernel
+conda install -c anaconda ipykernel
+python -m ipykernel install --user --name=sprintenv

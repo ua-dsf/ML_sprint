@@ -1,0 +1,21 @@
+DBpedia query 
+
+# person born in New_Zealand
+
+SELECT distinct(?person) ?abstract ?name WHERE {      
+?person dbo:birthPlace :New_Zealand .           
+?person foaf:name ?name .
+?person dbo:abstract ?abstract .
+FILTER(LANG(?abstract) = "en")
+} ORDER BY ?name
+
+# persons with movie in abstract
+
+SELECT distinct ?name ?abstract ?person WHERE {                 
+?person foaf:name ?name .
+?person dbo:abstract ?abstract .
+FILTER regex(?abstract,'movie','i')
+FILTER(LANG(?abstract) = "en")
+} ORDER BY ?name
+
+
